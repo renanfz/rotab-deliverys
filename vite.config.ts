@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/deliverys/',
+  base: '/rotab-deliverys/',
   server: {
     watch: {
       ignored: ['**/node_modules/**', '**/db/**', '**/.git/**'],

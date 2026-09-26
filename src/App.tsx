@@ -6,7 +6,7 @@ import { DeliveryPage } from './pages/deliveryPage'
 
 const App = () => {
   return (
-    <BrowserRouter basename='/deliverys/'>
+    <BrowserRouter basename='/rotab-deliverys/'>
       {/*       <nav
         className="fixed bottom-0 right-0 left-0 mx-auto my-5 px-6 z-50 w-fit flex justify-center bg-white border border-gray-200 shadow-md p-4 rounded-4xl">
 
