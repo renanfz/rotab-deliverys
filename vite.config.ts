@@ -10,4 +10,7 @@ export default defineConfig({
       ignored: ['**/node_modules/**', '**/db/**', '**/.git/**'],
     },
   },
+  optimizeDeps: {
+    exclude: ['maplibre-gl'],
+  }
 })

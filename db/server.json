@@ -86,10 +86,10 @@
       "id": "22",
       "routeId": 1,
       "order": 5,
-      "customer": "Casa de Carnes Boi Gordo",
-      "address": "Avenida principal, 200 - Centro, Bom Repouso - MG",
+      "customer": "Hortifrut Caminhos da Fé",
+      "address": "Avenida Elmira Caporali, 117 - Centro, Bom Repouso - MG",
       "latitude": -22.4782,
-      "longitude": -46.1462,
+      "longitude": -46.1468,
       "status": "pending",
       "nfe": 125878
     },

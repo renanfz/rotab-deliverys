@@ -1,4 +1,4 @@
-import { ChevronLeft, FileText, MapPin, Navigation } from "lucide-react";
+import { ChevronLeft, FileText, MapPin, Navigation, Phone } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { changeStatus, getDeliverieUnique, url } from '../services/api'
 /* import { useEffect, useState } from "react";
@@ -116,7 +116,7 @@ export function DeliveryPage() {
 
      return (
           <div className="h-screen w-full flex flex-col items-center p-4">
-               <div className="w-[92vw] max-w-[450px]">
+               <div className="w-[92vw] max-w-112.5">
 
                     <header className="text-left mb-6">
 
@@ -221,6 +221,15 @@ export function DeliveryPage() {
                          </button>
 
                     </section>
+
+                    <a
+                         href={`tel:${"+5511999999999"}`}
+                         className="flex items-center gap-2 px-4 py-3 mt-2 border border-gray-300 rounded-sm justify-center w-fit hover:cursor-pointer text-sm font-medium"
+                    >
+                         <Phone className="w-4 h-4" />
+                         <span>Ligar para o estabelecimento</span>
+                    </a>
+
 
 
                     <button

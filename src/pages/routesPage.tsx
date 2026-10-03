@@ -7,11 +7,11 @@ import '../index.css'
 import Footer from '../components/footer'
 
 export const RoutesPage = () => {
+
      const [routesData, setRoutesData] = useState<any[]>([])
      const [routeActive, setRouteActive] = useState(0)
      const [totalDeliverys, setTotalDeliverys] = useState<number | null>(null);
      const [completedDeliverys, setCompletedDeliverys] = useState<number | null>(null);
-
      const [loading, setLoading] = useState(true)
      const [slowLoading, setSlowLoading] = useState(false)
 
@@ -25,7 +25,7 @@ export const RoutesPage = () => {
           const completedDeliveries = routesData.reduce((sum, item) => sum + item.completeds, 0)
           setCompletedDeliverys(completedDeliveries)
 
-     }, [routesData]);
+     }, [routesData])
 
      useEffect(() => {
           const fetchData = async () => {
@@ -42,24 +42,15 @@ export const RoutesPage = () => {
 
      useEffect(() => {
           const timer = setTimeout(() => {
-               /* loading && setSlowLoading(true) */
                if (loading) { setSlowLoading(true) }
           }, 5000)
           return () => clearTimeout(timer)
      }, [loading])
 
-
-     /*      const dataFormatada = new Date().toLocaleDateString('pt-BR', {
-               weekday: 'long',
-               day: 'numeric',
-               month: 'long'
-          });
-          const dateFormated = dataFormatada.replace(/(^\w|\s\w)/g, m => m.toUpperCase())
-      */
      return (
           <>
                <div className="min-h-screen w-full flex flex-col items-center p-3">
-                    <div className="w-[92vw] max-w-[450px] flex flex-col grow">
+                    <div className="w-[92vw] max-w-112.5 flex flex-col grow">
                          <header className="mb-3 mt-2 flex flex-col items-start">
                               {/* <p className='font-medium text-(--color-text-secondary)'>{dateFormated}</p> */}
                               <div className="flex items-center gap-1.5">
@@ -97,7 +88,12 @@ export const RoutesPage = () => {
                                    className={`py-5 text-(--color-text-secondary) font-bold ${loading && "hidden"
                                         }`}
                               >
-                                   {routeActive} ROTAS ATIVAS
+                                   {
+                                        routeActive === 1 ?
+                                             `${routeActive} Rota ativa`
+                                             : routeActive ? `${routeActive} Rotas ativas` : `Nenhuma rota ativa`
+                                   }
+
                               </p>
 
                               {loading && (
@@ -122,6 +118,7 @@ export const RoutesPage = () => {
                               ))}
                          </main>
                          <Footer />
+
                     </div>
                </div>
           </>

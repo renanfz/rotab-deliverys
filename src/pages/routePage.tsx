@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ChevronLeft } from 'lucide-react'
 import type { Delivery } from '../types/index'
 import { Spinner } from '../components/spinner'
+import { RouteMap } from '../components/routeMap'
 
 type RouteWithDeliveries = {
      id: string
@@ -15,24 +16,13 @@ type RouteWithDeliveries = {
 }
 
 export const RoutePage = () => {
+
      const [selectedRoute, setSelectedRoute] = useState<RouteWithDeliveries | null>(null)
      const [loading, setLoading] = useState(true)
      const [error, setError] = useState<string | null>(null)
-     /*      const [progress, setProgress] = useState<string | null>(null)
-      */
      const [searchParams] = useSearchParams()
      const routeId = searchParams.get('id')
-/*      const progressParam = searchParams.get('progress')
- */     const navigate = useNavigate()
-
-     /*      useEffect(() => {
-                setProgress(progressParam) 
-               const fetchData = async () => {
-                    const data = await calculateDeliverys(url)
-                    setProgress(data.progress)
-               }
-               fetchData()
-          }, [progressParam]) */
+     const navigate = useNavigate()
 
      useEffect(() => {
           if (!routeId) {
@@ -73,13 +63,13 @@ export const RoutePage = () => {
           fetchData()
      }, [routeId])
 
-     if (loading) return <Spinner/>
+     if (loading) return <Spinner />
      if (error) return <div>{error}</div>
      if (!selectedRoute) return <div>Rota não encontrada</div>
 
      return (
-          <div className='h-screen w-full flex flex-col items-center p-5'>
-               <div className='w-[92vw] max-w-[450px]'>
+          <div className='h-[screen + 15px] w-full flex flex-col items-center p-5'>
+               <div className='w-[92vw] max-w-112.5'>
                     <header className='text-left mb-9'>
                          <button
                               type='button'
@@ -109,6 +99,12 @@ export const RoutePage = () => {
                     </header>
                     {/* Listagem das entregas */}
                     <div className='w-full'>
+
+                         {<RouteMap
+                              deliveries={selectedRoute.deliveries}
+                              lat={Number(selectedRoute.deliveries[0].latitude)}
+                              long={Number(selectedRoute.deliveries[0].longitude)} ></RouteMap>}
+
                          {selectedRoute.deliveries.map((item: Delivery) => (
                               <DeliveryItem
                                    key={item.id}
