@@ -9,8 +9,5 @@ export default defineConfig({
     watch: {
       ignored: ['**/node_modules/**', '**/db/**', '**/.git/**'],
     },
-  },
-  optimizeDeps: {
-    exclude: ['maplibre-gl'],
   }
 })

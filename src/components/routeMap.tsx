@@ -1,6 +1,12 @@
-import { Map as MapGL, Marker, Source, Layer } from 'react-map-gl/maplibre';
+
 import type { LineLayerSpecification } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
+import * as maplibregl from 'maplibre-gl';
+import { Map as MapGL, Marker, Source, Layer } from 'react-map-gl/maplibre';
+import 'maplibre-gl/dist/maplibre-gl.css';
+
+maplibregl.setWorkerUrl(`${import.meta.env.BASE_URL}maplibre-gl-csp-worker.js`);
 
 const mapKey = import.meta.env.VITE_MAPTILER_KEY;
 
